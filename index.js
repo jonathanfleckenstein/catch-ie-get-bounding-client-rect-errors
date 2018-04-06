@@ -1,9 +1,12 @@
-var element = document.createElement('div');
+// Only patch in IE.
+if( (navigator.userAgent.indexOf('MSIE') !== -1
+  || navigator.appVersion.indexOf('Trident/') > 0)) {
+  var HTMLElement = Object.getPrototypeOf(Object.getPrototypeOf(document.createElement('div')))
+  var getBoundingClientRect = HTMLElement.getBoundingClientRect;
 
-var getBoundingClientRect = element.__proto__.__proto__.getBoundingClientRect;
-
-element.__proto__.__proto__.getBoundingClientRect = function () {
-  try {
-    return getBoundingClientRect.call(this)
-  } catch(e) {}
+  HTMLElement.getBoundingClientRect = function () {
+    try {
+      return getBoundingClientRect.call(this);
+    } catch(e) {}
+  }
 }

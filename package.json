@@ -1,6 +1,6 @@
 {
   "name": "catch-ie-get-bounding-client-rect-errors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern browsers don't throw an error when calling getBoundingClientRect on an element that hasn't been attatched to the dom. This catches Internet Explorer's errors that are thrown when calling this method.",
   "main": "index.js",
   "repository": "https://github.com/jonathanfleckenstein/catch-ie-get-bounding-client-rect-errors",
